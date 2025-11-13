@@ -1,4 +1,4 @@
-/* Container to center the form */
+/* ===== Page Container ===== */
 .complaint-container {
   display: flex;
   justify-content: center;
@@ -6,41 +6,45 @@
   min-height: 90vh;
   background-color: #f2f7fc;
   padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* Card styling */
+/* ===== Complaint Card ===== */
 .complaint-card {
   background: #ffffff;
-  width: 100%;
-  max-width: 500px;
+  width: 700px; /* ✅ fixed form width */
   padding: 40px 30px;
   border-radius: 16px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
   border: 1px solid #e0e6ed;
   transition: transform 0.3s ease;
+  box-sizing: border-box;
 }
 
 .complaint-card:hover {
   transform: translateY(-3px);
 }
 
-/* Title */
+/* ===== Title ===== */
 .complaint-title {
   text-align: center;
   font-size: 26px;
   color: #0078d7;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   font-weight: 600;
 }
 
-/* Form layout */
+/* ===== Form ===== */
 .complaint-form {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 15px;
+  width: 100%;
 }
 
-/* Input fields */
+/* ===== Inputs / Select / Textarea ===== */
 .form-input,
 .form-select,
 .form-textarea,
@@ -52,6 +56,8 @@
   outline: none;
   background-color: #f9fbff;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%; /* ✅ inputs fill full card width */
+  box-sizing: border-box;
 }
 
 .form-input:focus,
@@ -61,20 +67,20 @@
   box-shadow: 0 0 4px rgba(102, 179, 255, 0.6);
 }
 
-/* Textarea */
+/* ===== Textarea ===== */
 .form-textarea {
   resize: none;
   min-height: 100px;
 }
 
-/* File input */
+/* ===== File Input ===== */
 .form-file {
   padding: 8px;
   background-color: #f9fbff;
   cursor: pointer;
 }
 
-/* Submit button */
+/* ===== Submit Button ===== */
 .submit-btn {
   background: linear-gradient(90deg, #5ac8fa, #007aff);
   color: white;
@@ -84,6 +90,8 @@
   font-size: 16px;
   cursor: pointer;
   transition: background 0.3s ease, transform 0.2s ease;
+  width: 100%; /* ✅ button width matches form width */
+  text-align: center;
 }
 
 .submit-btn:hover {

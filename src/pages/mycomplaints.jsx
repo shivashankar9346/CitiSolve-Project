@@ -11,7 +11,25 @@ const MyComplaints = () => {
 
   return (
     <div className="mycomplaints-container">
-      <h2>📋 My Complaints</h2>
+     <div className="headers">
+       <h1>My Complaints</h1>
+      <p>Track the status of your submitted complaints</p>
+     </div>
+     <div className="mycomplaints-header">
+      <div className="filter-dropdown">
+        <label htmlFor=""> Filter By Status : </label>
+        <select name="" id="filtering-options">
+          <option value="All Status">All Status</option>
+          <option value="Open">Open</option>
+          <option value="Inprogess">Inprogess</option>
+          <option value="Resolved">Resolved</option>
+        </select>
+      </div>
+      
+       <div>
+        <h2>📋 My Complaints</h2>
+       </div>
+     </div>
 
       {complaints.length === 0 ? (
         <p>No complaints found.</p>

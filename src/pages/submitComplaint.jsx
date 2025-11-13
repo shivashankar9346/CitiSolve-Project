@@ -78,10 +78,13 @@ const SubmitComplaint = () => {
           >
             <option value="">Select Category</option>
             <option value="Water Supply">Water Supply</option>
-            <option value="Roads & Infrastructure">
-              Roads & Infrastructure
-            </option>
+            <option value="Roads & Infrastructure">Roads & Infrastructure</option>
             <option value="Noise Pollution">Noise Pollution</option>
+            <option value="Sanitation & Waste">Sanitation & Waste</option>
+            <option value="Street Lighting">Street Lighting </option>
+            <option value="Public safety">Public safety</option>
+            <option value="Environmental Issue">Environmental Issue</option>
+            <option value="Others">Others</option>
           </select>
           <textarea
             className="form-textarea"
