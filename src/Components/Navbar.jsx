@@ -2,7 +2,7 @@ import React from 'react';
 import { useUser } from '../context/userContext';
 import { NavLink,useNavigate } from 'react-router-dom';
 import { FaBuildingColumns } from "react-icons/fa6";
-import '../App.css';
+import './navbar.css';
 
 const Navbar = () => {
   const { user, logout} = useUser();

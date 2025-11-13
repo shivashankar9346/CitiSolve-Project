@@ -1,0 +1,121 @@
+/* 🌆 Navbar Base */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  color: #222;
+  padding: 14px 40px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: "Poppins", sans-serif;
+}
+
+/* 🏛️ Left Section - Logo */
+.navbar-left h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #0072ff;
+  background: linear-gradient(90deg, #0072ff, #00c6ff);
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+}
+
+/* 🔗 Center Navigation */
+.navbar-center {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+/* Buttons inside Navbar Center */
+.submit-complaints-btn,
+.my-complaints-btn {
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  color: #fff;
+  background: linear-gradient(90deg, #56ccf2, #2f80ed);
+  box-shadow: 0 3px 8px rgba(0, 114, 255, 0.2);
+}
+
+.submit-complaints-btn:hover,
+.my-complaints-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(0, 114, 255, 0.3);
+}
+
+/* 👤 Right Section */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.welcome-text {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* 🔘 Gradient Buttons */
+.login-btn,
+.register-btn,
+.logout-btn {
+  border: none;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  color: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0, 114, 255, 0.3);
+}
+
+/* Sky Blue Gradients for Login/Register */
+.login-btn {
+  background: linear-gradient(90deg, #00b4db, #0083b0);
+}
+
+.register-btn {
+  background: linear-gradient(90deg, #56ccf2, #2f80ed);
+}
+
+/* Coral Gradient for Logout */
+.logout-btn {
+  background: linear-gradient(90deg, #ff4b2b, #ff416c);
+}
+
+/* Button Hover Effects */
+.login-btn:hover,
+.register-btn:hover,
+.logout-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(0, 114, 255, 0.4);
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 16px;
+    gap: 10px;
+  }
+
+  .navbar-center {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .navbar-right {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

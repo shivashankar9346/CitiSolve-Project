@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./submitComplaints.css";
 
 const SubmitComplaint = () => {
   const navigate = useNavigate();
@@ -17,28 +18,67 @@ const SubmitComplaint = () => {
     setFormData((prev) => ({ ...prev, [name]: files ? files[0] : value }));
   };
 
-function handleSubmit() {
+  function handleSubmit(e) {
     e.preventDefault();
-    navigate("/mycomplaints")
+    navigate("/mycomplaints");
   }
 
   return (
-    <div>
-      <h2>Submit Complaint</h2>
-      <form onSubmit={handleSubmit}>
-        <input name="name" placeholder="Your Name" onChange={handleChange} />
-        <input name="ward" placeholder="Ward" onChange={handleChange} />
-        <input name="location" placeholder="Location" onChange={handleChange} />
-        <select name="category" onChange={handleChange}>
-          <option value="">Select Category</option>
-          <option value="Water Supply">Water Supply</option>
-          <option value="Roads & Infrastructure">Roads & Infrastructure</option>
-          <option value="Noise Pollution">Noise Pollution</option>
-        </select>
-        <textarea name="description" placeholder="Describe issue..." onChange={handleChange}></textarea>
-        <input type="file" name="photo" onChange={handleChange} />
-        <button type="submit">Submit</button>
-      </form>
+    <div className="complaint-container">
+      <div className="complaint-card">
+        <h2 className="complaint-title">Submit Complaint</h2>
+
+        <form className="complaint-form" onSubmit={handleSubmit}>
+          <input
+            className="form-input"
+            name="name"
+            placeholder="Your Name"
+            onChange={handleChange}
+            required
+          />
+          <input
+            className="form-input"
+            name="ward"
+            placeholder="Ward"
+            onChange={handleChange}
+            required
+          />
+          <input
+            className="form-input"
+            name="location"
+            placeholder="Location"
+            onChange={handleChange}
+            required
+          />
+          <select
+            className="form-select"
+            name="category"
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select Category</option>
+            <option value="Water Supply">Water Supply</option>
+            <option value="Roads & Infrastructure">Roads & Infrastructure</option>
+            <option value="Noise Pollution">Noise Pollution</option>
+          </select>
+          <textarea
+            className="form-textarea"
+            name="description"
+            placeholder="Describe the issue..."
+            onChange={handleChange}
+            required
+          ></textarea>
+          <input
+            className="form-file"
+            type="file"
+            name="photo"
+            onChange={handleChange}
+          />
+          <button className="submit-btn" type="submit">
+            Submit
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

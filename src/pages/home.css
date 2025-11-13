@@ -1,0 +1,157 @@
+/* 🌆 Home Page Styles */
+
+.hero-container {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #f8fbff 0%, #e9f3ff 100%);
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  color: #222;
+}
+
+/* 🏙️ Heading Section */
+.heading h1 {
+  font-size: 2.8rem;
+  color: #004e92;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.heading p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* 🔗 Hero Buttons */
+.navlinks {
+  margin-top: 25px;
+}
+
+.navlinks a {
+  margin: 0 10px;
+  padding: 10px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  background: linear-gradient(90deg, #56CCF2, #2F80ED);
+  color: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0, 114, 255, 0.3);
+}
+
+.navlinks a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(0, 114, 255, 0.4);
+}
+
+/* ⚙️ How It Works Section */
+.works {
+  margin-top: 80px;
+}
+
+.works h2 {
+  font-size: 2rem;
+  color: #004e92;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+/* 📦 Step Cards */
+.track-process {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.process {
+  background: white;
+  padding: 30px 25px;
+  border-radius: 14px;
+  width: 260px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.process:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 22px rgba(0, 114, 255, 0.2);
+}
+
+.number {
+   background: linear-gradient(90deg, #56CCF2, #2F80ED);
+  color: white;
+  font-size: 1.8rem;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px;
+  font-weight: bold;
+}
+
+.process h3 {
+  margin: 10px 0 5px;
+  color: #004e92;
+}
+
+.process p {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* 🌟 Footer Call to Action */
+.footer-card {
+  background: white;
+  margin: 90px auto 30px;
+  max-width: 700px;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.footer-card h2 {
+  color: #004e92;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.footer-card p {
+  color: #555;
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+/* 🌈 Footer Buttons */
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.footer-links a {
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  color: white;
+  box-shadow: 0 3px 8px rgba(0, 114, 255, 0.3);
+}
+
+#create-account {
+    background: linear-gradient(90deg, #56CCF2, #2F80ED);
+}
+
+#sign-in {
+   background: linear-gradient(90deg, #a59ee5, #a18fdb);
+}
+
+.footer-links a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 114, 255, 0.4);
+}
+
