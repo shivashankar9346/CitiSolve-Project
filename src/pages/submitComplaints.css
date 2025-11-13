@@ -1,68 +1,92 @@
+/* Container to center the form */
 .complaint-container {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 90vh;
-  background: linear-gradient(to right, #a1c4fd, #c2e9fb); /* sky blue gradient */
+  background-color: #f2f7fc;
+  padding: 20px;
 }
 
+/* Card styling */
 .complaint-card {
-  background: white;
-  padding: 2rem;
-  border-radius: 15px;
-  width: 400px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  border: 2px solid #87ceeb;
+  background: #ffffff;
+  width: 100%;
+  max-width: 500px;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e6ed;
+  transition: transform 0.3s ease;
 }
 
+.complaint-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Title */
 .complaint-title {
   text-align: center;
-  margin-bottom: 1.5rem;
-  color: #007acc;
-  font-weight: 700;
+  font-size: 26px;
+  color: #0078d7;
+  margin-bottom: 20px;
+  font-weight: 600;
 }
 
+/* Form layout */
 .complaint-form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 15px;
 }
 
+/* Input fields */
 .form-input,
 .form-select,
 .form-textarea,
 .form-file {
-  padding: 10px;
-  border: 1.5px solid #87ceeb;
-  border-radius: 8px;
   font-size: 15px;
+  padding: 12px 14px;
+  border: 1px solid #ccd6e0;
+  border-radius: 10px;
   outline: none;
-  transition: border 0.3s ease;
+  background-color: #f9fbff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .form-input:focus,
 .form-select:focus,
 .form-textarea:focus {
-  border-color: #007acc;
+  border-color: #66b3ff;
+  box-shadow: 0 0 4px rgba(102, 179, 255, 0.6);
 }
 
+/* Textarea */
 .form-textarea {
-  resize: vertical;
-  min-height: 80px;
+  resize: none;
+  min-height: 100px;
 }
 
+/* File input */
+.form-file {
+  padding: 8px;
+  background-color: #f9fbff;
+  cursor: pointer;
+}
+
+/* Submit button */
 .submit-btn {
-  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  background: linear-gradient(90deg, #5ac8fa, #007aff);
   color: white;
-  padding: 10px;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
+  padding: 12px 16px;
   font-size: 16px;
   cursor: pointer;
-  transition: transform 0.2s ease, background 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .submit-btn:hover {
-  transform: scale(1.05);
-  background: linear-gradient(135deg, #0072ff, #00c6ff);
+  background: linear-gradient(90deg, #4ab3e6, #0066cc);
+  transform: translateY(-2px);
 }

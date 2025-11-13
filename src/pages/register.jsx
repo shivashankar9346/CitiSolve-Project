@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useUser } from "../context/userContext"; // ✅ Import context
+import { useUser } from "../context/userContext";
 import "./register.css";
 
 const Register = () => {
@@ -12,7 +12,7 @@ const Register = () => {
     role: "citizen",
   });
 
-  const { login } = useUser(); // ✅ Use context
+  const { login } = useUser();
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -27,12 +27,12 @@ const Register = () => {
       return;
     }
 
-    // (Optional) store users for reference
+    // Save user to localStorage for reference
     const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
     existingUsers.push(formData);
     localStorage.setItem("users", JSON.stringify(existingUsers));
 
-    // ✅ Log the user in after successful registration
+    // Log the user in
     login({
       name: formData.name,
       email: formData.email,
@@ -40,7 +40,13 @@ const Register = () => {
     });
 
     alert("✅ Registration successful!");
-    navigate("/myComplaints"); // redirect
+
+    // ✅ Redirect based on role
+    if (formData.role === "admin") {
+      navigate("/allComplaints");
+    } else {
+      navigate("/myComplaints");
+    }
   };
 
   return (

@@ -18,10 +18,30 @@ const SubmitComplaint = () => {
     setFormData((prev) => ({ ...prev, [name]: files ? files[0] : value }));
   };
 
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
+
+    // ✅ Load existing complaints from localStorage
+    const existingComplaints =
+      JSON.parse(localStorage.getItem("complaints")) || [];
+
+    // ✅ Create new complaint object
+    const newComplaint = {
+      ...formData,
+      id: Date.now(),
+      status: "Pending",
+      date: new Date().toLocaleString(),
+    };
+
+    // ✅ Save updated complaints list
+    existingComplaints.push(newComplaint);
+    localStorage.setItem("complaints", JSON.stringify(existingComplaints));
+
+    alert("✅ Complaint submitted successfully!");
+
+    // ✅ Redirect to My Complaints page
     navigate("/mycomplaints");
-  }
+  };
 
   return (
     <div className="complaint-container">
@@ -58,7 +78,9 @@ const SubmitComplaint = () => {
           >
             <option value="">Select Category</option>
             <option value="Water Supply">Water Supply</option>
-            <option value="Roads & Infrastructure">Roads & Infrastructure</option>
+            <option value="Roads & Infrastructure">
+              Roads & Infrastructure
+            </option>
             <option value="Noise Pollution">Noise Pollution</option>
           </select>
           <textarea

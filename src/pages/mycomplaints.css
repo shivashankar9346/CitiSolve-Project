@@ -1,98 +1,57 @@
-
-
 .mycomplaints-container {
-  /* width: 100%; */
-  max-width: 2000px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   padding: 30px;
+  background: #f8f9fa;
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 h2 {
   text-align: center;
-  color: #007bff;
-  font-size: 1.8rem;
+  color: #333;
   margin-bottom: 25px;
-  font-weight: 600;
 }
 
-.no-complaints {
-  text-align: center;
-  color: #777;
-  font-size: 1.1rem;
-}
-
-/* ✅ Grid layout — 3 fixed-width cards per row */
+/* 🧩 Grid layout for complaints */
 .complaints-grid {
-  display: flex;
-  flex-wrap: wrap;
-  /* justify-content: center; */
-  gap: 25px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* responsive grid */
+  gap: 30px;
+  padding: 20px 40px;
+  justify-items: center;
+  box-sizing: border-box;
 }
 
-/* ✅ Each card fixed size */
+/* 💳 Complaint Card Style */
 .complaint-card {
-  background: #ffffff;
-  border: 2px solid #e3e6f0;
-  border-radius: 12px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.06);
-  transition: all 0.3s ease;
-  padding: 20px;
-  width: 600px;        /* fixed width */
-  height: 500px;        /* auto adjust height */
+  background: #fff;
+  border: 2px solid #cce7ff;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: 100%;
+  max-width: 400px; /* ✅ ensures no overflow */
+  height: 400px;
   box-sizing: border-box;
 }
 
 .complaint-card:hover {
-  transform: translateY(-6px);
-  border-color: #00bfff;
-  box-shadow: 0 8px 14px rgba(0, 191, 255, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
-.complaint-header h3 {
-  color: #00bfff;
-  font-size: 1.3rem;
-  margin-bottom: 12px;
-  text-align: center;
-  border-bottom: 2px solid #00bfff;
-  padding-bottom: 8px;
+.complaint-card h3 {
+  color: #00aaff;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #cce7ff;
+  padding-bottom: 5px;
 }
 
-.complaint-body p {
-  color: #444;
-  font-size: 0.95rem;
-  margin: 6px 0;
-}
-
-.complaint-body strong {
-  color: #333;
-}
-
-.status {
-  padding: 3px 10px;
-  border-radius: 8px;
-  font-weight: 500;
-  color: white;
-}
-
-.status.pending {
-  background-color: #ffc107;
-}
-
-.status.resolved {
-  background-color: #28a745;
-}
-
-.status.rejected {
-  background-color: #dc3545;
-}
-
-.date {
-  font-size: 0.8rem;
-  color: #888;
-  margin-top: 10px;
-  display: block;
-  text-align: right;
+.complaint-card p {
+  margin: 8px 0;
+  color: #555;
+  line-height: 1.5;
 }
 

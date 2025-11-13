@@ -1,17 +1,16 @@
 import React from 'react';
 import { useUser } from '../context/userContext';
-import { NavLink,useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { FaBuildingColumns } from "react-icons/fa6";
 import './navbar.css';
 
 const Navbar = () => {
-  const { user, logout} = useUser();
-
-    const navigate = useNavigate();
+  const { user, logout } = useUser();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
-    logout()
-    navigate('/'); 
+    logout();
+    navigate('/');
   };
 
   return (
@@ -23,8 +22,20 @@ const Navbar = () => {
       <div className="navbar-center">
         {user && (
           <>
-            <NavLink to="/submitComplaint" className="submit-complaints-btn">Submit Complaint</NavLink>
-            <NavLink to="/myComplaints" className="my-complaints-btn">My Complaints</NavLink>
+            {user.role === "admin" ? (
+              <NavLink to="/allComplaints" className="all-complaints-btn">
+                All Complaints
+              </NavLink>
+            ) : (
+              <>
+                <NavLink to="/submitComplaint" className="submit-complaints-btn">
+                  Submit Complaint
+                </NavLink>
+                <NavLink to="/myComplaints" className="my-complaints-btn">
+                  My Complaints
+                </NavLink>
+              </>
+            )}
           </>
         )}
       </div>
@@ -37,8 +48,10 @@ const Navbar = () => {
           </>
         ) : (
           <>
-            <p className="welcome-text">Welcome, <strong>{user.name || user.email}</strong></p>
-          <button onClick={handleLogout} className="logout-btn">Logout</button>
+            <p className="welcome-text">
+              Welcome, <strong>{user.name || user.email}</strong> ({user.role})
+            </p>
+            <button onClick={handleLogout} className="logout-btn">Logout</button>
           </>
         )}
       </div>

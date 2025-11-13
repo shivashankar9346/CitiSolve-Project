@@ -6,6 +6,7 @@ import Login from './pages/login'
 import Register from './pages/register'
 import Mycomplaints from './pages/mycomplaints'
 import SubmitComplaint from './pages/submitComplaint'
+import AdminDashboard from './pages/AdminDashboard'
 import './App.css'
 
 const App = () => {
@@ -48,6 +49,13 @@ const App = () => {
       <div>
         <Navbar/>
         <SubmitComplaint/>
+      </div>
+    },{
+      path:'/allcomplaints',
+      element:
+      <div>
+        <Navbar/>
+        <AdminDashboard/>
       </div>
     }
   ])
