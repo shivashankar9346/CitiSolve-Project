@@ -1,121 +1,137 @@
-/* 🌆 Navbar Base */
+/* ---------------- NAVBAR MAIN ---------------- */
+
+* {
+  box-sizing: border-box;
+}
+
 .navbar {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #ffffff;
-  color: #222;
-  padding: 14px 40px;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+  padding: 14px 35px;
+  background: white;
+  border-bottom: 2px solid #dceaff;
+  font-family: "Poppins", sans-serif;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
   position: sticky;
   top: 0;
-  z-index: 1000;
-  font-family: "Poppins", sans-serif;
+  z-index: 100;
 }
 
-/* 🏛️ Left Section - Logo */
+/* ---------------- LEFT (LOGO + TEXT) ---------------- */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .navbar-left h2 {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 1.7rem;
-  font-weight: 700;
-  color: #0072ff;
-  background: linear-gradient(90deg, #0072ff, #00c6ff);
-  -webkit-text-fill-color: transparent;
-  cursor: pointer;
+  font-size: 22px;
+  color: #0078d7;
 }
 
-/* 🔗 Center Navigation */
+/* Make icon properly visible */
+.navbar-left svg {
+  font-size: 26px;
+  color: #0078d7;
+}
+
+/* ---------------- CENTER LINKS ---------------- */
 .navbar-center {
   display: flex;
-  gap: 25px;
   align-items: center;
+  gap: 20px;
 }
 
-/* Buttons inside Navbar Center */
-.submit-complaints-btn,
-.my-complaints-btn {
-  text-decoration: none;
+.navbar-center a {
+  padding: 10px 18px;
+  font-size: 15px;
+  border-radius: 10px;
   font-weight: 500;
-  padding: 8px 18px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  color: #fff;
-  background: linear-gradient(90deg, #56ccf2, #2f80ed);
-  box-shadow: 0 3px 8px rgba(0, 114, 255, 0.2);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+/* Buttons */
+.submit-complaints-btn,
+.my-complaints-btn,
+.all-complaints-btn {
+  background: #e8f3ff;
+  color: #0078d7;
+  border: 1px solid #bcdcff;
 }
 
 .submit-complaints-btn:hover,
-.my-complaints-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 12px rgba(0, 114, 255, 0.3);
+.my-complaints-btn:hover,
+.all-complaints-btn:hover {
+  background: #d6eaff;
 }
 
-/* 👤 Right Section */
+/* Active Route Highlight */
+a.active {
+  background: #0078d7 !important;
+  color: white !important;
+}
+
+/* ---------------- RIGHT SECTION (Login/User Info) ---------------- */
 .navbar-right {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
 }
 
-.welcome-text {
-  font-size: 0.95rem;
-  color: #333;
-}
-
-/* 🔘 Gradient Buttons */
+/* Login / Register Buttons */
 .login-btn,
-.register-btn,
-.logout-btn {
-  border: none;
-  text-decoration: none;
+.register-btn {
   padding: 8px 16px;
-  border-radius: 8px;
+  border-radius: 10px;
+  text-decoration: none;
   font-weight: 500;
-  color: white;
-  transition: all 0.3s ease;
-  box-shadow: 0 3px 8px rgba(0, 114, 255, 0.3);
+  transition: 0.3s;
+  border: 1px solid #0078d7;
 }
 
-/* Sky Blue Gradients for Login/Register */
 .login-btn {
-  background: linear-gradient(90deg, #00b4db, #0083b0);
+  background: white;
+  color: #0078d7;
+}
+
+.login-btn:hover {
+  background: #0078d7;
+  color: white;
 }
 
 .register-btn {
-  background: linear-gradient(90deg, #56ccf2, #2f80ed);
+  background: #0078d7;
+  color: white;
 }
 
-/* Coral Gradient for Logout */
+.register-btn:hover {
+  background: #005cb2;
+}
+
+/* Welcome text */
+.welcome-text {
+  font-size: 15px;
+  color: #333;
+}
+
+/* Logout button */
 .logout-btn {
-  background: linear-gradient(90deg, #ff4b2b, #ff416c);
+  padding: 8px 16px;
+  background: #ff5757;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
 }
 
-/* Button Hover Effects */
-.login-btn:hover,
-.register-btn:hover,
 .logout-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 12px rgba(0, 114, 255, 0.4);
-}
-
-/* 📱 Responsive Design */
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    padding: 16px;
-    gap: 10px;
-  }
-
-  .navbar-center {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-  }
-
-  .navbar-right {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+  background: #e04646;
 }

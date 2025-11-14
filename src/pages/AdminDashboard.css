@@ -1,0 +1,130 @@
+/* ============================== */
+/* GENERAL DASHBOARD LAYOUT */
+/* ============================== */
+
+.admin-dashboard {
+  width: 100%;
+  padding: 20px 40px;
+  box-sizing: border-box;
+  background: #f4f8fc;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+/* ============================== */
+/* COUNTER CARDS */
+/* ============================== */
+.counter-cards {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  gap: 20px;
+}
+
+.counter-cards > div {
+  background: white;
+  width: 23%;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+  text-align: center;
+  border: 1px solid #d5e3f0;
+}
+
+.counter-cards p {
+  font-size: 16px;
+  margin: 0;
+  color: #555;
+}
+
+.counter-cards h2 {
+  font-size: 30px;
+  margin: 5px 0 0;
+  color: #004c99;
+}
+
+/* ============================== */
+/* FILTER SECTION */
+/* ============================== */
+.filter-section {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.filter-section input,
+.filter-section select {
+  padding: 10px 12px;
+  border: 1px solid #b8cce0;
+  border-radius: 8px;
+  font-size: 14px;
+  background: white;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.filter-section input {
+  width: 250px;
+}
+
+.filter-section select {
+  width: 180px;
+}
+
+/* ============================== */
+/* TABLE TITLE */
+/* ============================== */
+.table-title {
+  margin-bottom: 12px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #003366;
+}
+
+/* ============================== */
+/* TABLE STYLING */
+/* ============================== */
+.complaints-table {
+  width: 100%;
+  border-collapse: collapse;
+  box-sizing: border-box;
+  background: white;
+  border: 2px solid #b7cfe8;      /* full table border */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
+
+/* Header */
+.complaints-table th {
+  background: #e8f1fb;
+  padding: 12px 10px;
+  border: 1px solid #5687bc;      /* grid lines */
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #003c73;
+}
+
+/* Body */
+.complaints-table td {
+  padding: 12px 8px;
+  border: 1px solid #c4d7eb;
+  text-align: center;             /* CENTER DATA */
+  vertical-align: middle;         /* CENTER vertically */
+  font-size: 15px;
+  color: #333;
+}
+
+/* Row Hover */
+.complaints-table tbody tr:hover {
+  background: #f6faff;
+  transition: 0.2s;
+}
+
+/* Photo Styling */
+.complaints-table img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #bdd2e6;
+}
