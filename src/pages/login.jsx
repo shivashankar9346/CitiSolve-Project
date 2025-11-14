@@ -1,67 +1,38 @@
+
+
+// src/pages/Login.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useUser } from "../context/userContext"; // ✅ context import
+import { useUser } from "../context/userContext";
 import "./login.css";
 
 const Login = () => {
+  const { login } = useUser();
   const navigate = useNavigate();
-  const { login } = useUser(); // ✅ from context
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  function handleLogin(e) {
+  const handleLogin = async (e) => {
     e.preventDefault();
-
-    // ✅ Fetch all users from localStorage
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-
-    // ✅ Check if user exists
-    const existingUser = users.find(
-      (u) => u.email === email && u.password === password
-    );
-
-    if (!existingUser) {
-      alert("⚠️ Invalid credentials or user not registered!");
-      return;
+    try {
+      const user = await login({ email, password });
+      // route by role
+      if (user.role === "admin") navigate("/allComplaints"); // admin path
+      else navigate("/mycomplaints");
+    } catch (err) {
+      alert(err.message || "Login failed");
     }
-
-    // ✅ Login and store user in context + localStorage
-    login(existingUser);
-
-    alert(`✅ Welcome back, ${existingUser.name}!`);
-
-    // ✅ Redirect based on role
-    if (existingUser.role === "admin") {
-      navigate("/myComplaints");
-    } else {
-      navigate("/submitComplaint");
-    }
-  }
+  };
 
   return (
-    <div className="login-container">
-      <div className="login-card">
-        <h2>Login</h2>
-        <form onSubmit={handleLogin}>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email"
-            required
-          />
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Password"
-            required
-          />
-          <button type="submit">Login</button>
-        </form>
-      </div>
-    </div>
+    <form onSubmit={handleLogin}>
+      <label>Email</label>
+      <input value={email} onChange={(e)=>setEmail(e.target.value)} />
+      <label>Password</label>
+      <input value={password} type="password" onChange={(e)=>setPassword(e.target.value)} />
+      <button type="submit">Login</button>
+    </form>
   );
 };
-
 export default Login;
+

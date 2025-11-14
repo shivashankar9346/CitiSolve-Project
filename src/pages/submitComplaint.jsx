@@ -1,46 +1,35 @@
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "../context/userContext";
 import "./submitComplaints.css";
-
 const SubmitComplaint = () => {
+  const { addComplaint } = useUser();
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    name: "",
-    ward: "",
-    location: "",
-    category: "",
-    description: "",
-    photo: null,
-  });
+  const [form, setForm] = useState({ name: "", ward: "", location: "", category: "", description: "", photo: null });
 
   const handleChange = (e) => {
-    const { name, value, files } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: files ? files[0] : value }));
+    const { name, files, value } = e.target;
+    setForm(prev => ({ ...prev, [name]: files ? files[0] : value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      const fd = new FormData();
+      fd.append("name", form.name);
+      fd.append("ward", form.ward);
+      fd.append("location", form.location);
+      fd.append("category", form.category);
+      fd.append("description", form.description);
+      if (form.photo) fd.append("photo", form.photo);
 
-    // ✅ Load existing complaints from localStorage
-    const existingComplaints =
-      JSON.parse(localStorage.getItem("complaints")) || [];
-
-    // ✅ Create new complaint object
-    const newComplaint = {
-      ...formData,
-      id: Date.now(),
-      status: "Pending",
-      date: new Date().toLocaleString(),
-    };
-
-    // ✅ Save updated complaints list
-    existingComplaints.push(newComplaint);
-    localStorage.setItem("complaints", JSON.stringify(existingComplaints));
-
-    alert("✅ Complaint submitted successfully!");
-
-    // ✅ Redirect to My Complaints page
-    navigate("/mycomplaints");
+      await addComplaint(fd);
+      alert("Complaint submitted");
+      navigate("/mycomplaints");
+    } catch (err) {
+      alert(err.message || "Failed to submit complaint");
+    }
   };
 
   return (
@@ -105,6 +94,7 @@ const SubmitComplaint = () => {
         </form>
       </div>
     </div>
+ 
   );
 };
 

@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from "react";
+
+import React, { useEffect } from "react";
+import { useUser } from "../context/userContext";
 import "./mycomplaints.css";
 
 const MyComplaints = () => {
-  const [complaints, setComplaints] = useState([]);
+  const { complaints, fetchComplaints } = useUser();
 
-  useEffect(() => {
-    const storedComplaints = JSON.parse(localStorage.getItem("complaints")) || [];
-    setComplaints(storedComplaints);
-  }, []);
+  useEffect(()=>{ fetchComplaints(); }, []);
 
   return (
-    <div className="mycomplaints-container">
+   <div className="mycomplaints-container">
      <div className="headers">
        <h1>My Complaints</h1>
       <p>Track the status of your submitted complaints</p>
@@ -50,5 +49,4 @@ const MyComplaints = () => {
     </div>
   );
 };
-
 export default MyComplaints;

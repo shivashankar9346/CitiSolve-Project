@@ -1,51 +1,44 @@
+
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,NavLink } from "react-router-dom";
 import { useUser } from "../context/userContext";
-import "./register.css";
+import './register.css'
 
 const Register = () => {
-  const [formData, setFormData] = useState({
+  const { registerUser } = useUser();
+  const navigate = useNavigate();
+
+  const [form, setForm] = useState({
     name: "",
     email: "",
     password: "",
-    confirmPassword: "",
     role: "citizen",
   });
 
-  const { login } = useUser();
-  const navigate = useNavigate();
-
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (formData.password !== formData.confirmPassword) {
-      alert("⚠️ Passwords do not match!");
-      return;
+    if (form.password !== form.confirmPassword) {
+      return alert("Passwords do not match");
     }
 
-    // Save user to localStorage for reference
-    const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
-    existingUsers.push(formData);
-    localStorage.setItem("users", JSON.stringify(existingUsers));
+    try {
+      const user = await registerUser({
+        name: form.name,
+        email: form.email,
+        password: form.password,
+        role: form.role,
+      });
 
-    // Log the user in
-    login({
-      name: formData.name,
-      email: formData.email,
-      role: formData.role,
-    });
+      if (user.role === "admin") navigate("/allComplaints");
+      else navigate("/mycomplaints");
 
-    alert("✅ Registration successful!");
-
-    // ✅ Redirect based on role
-    if (formData.role === "admin") {
-      navigate("/allComplaints");
-    } else {
-      navigate("/myComplaints");
+    } catch (err) {
+      alert(err.message || "Registration failed");
     }
   };
 
@@ -53,44 +46,59 @@ const Register = () => {
     <div className="register-container">
       <div className="register-card">
         <h2>Create Account</h2>
+        <p>Join our citizen resolution system</p>
+
         <form onSubmit={handleSubmit}>
+          <label htmlFor="name">Full Name</label>
           <input
             name="name"
             placeholder="Full Name"
             onChange={handleChange}
-            value={formData.name}
+            value={form.name}
             required
           />
+
+          <label htmlFor="email">Email Address</label>
           <input
             name="email"
             type="email"
             placeholder="Email Address"
             onChange={handleChange}
-            value={formData.email}
+            value={form.email}
             required
           />
+
+          <label htmlFor="password">Password</label>
           <input
             type="password"
             name="password"
             placeholder="Password"
             onChange={handleChange}
-            value={formData.password}
+            value={form.password}
             required
           />
+
+          <label htmlFor="confirmPassword">Confirm password</label>
           <input
             type="password"
             name="confirmPassword"
             placeholder="Confirm Password"
             onChange={handleChange}
-            value={formData.confirmPassword}
+            value={form.confirmPassword}
             required
           />
-          <select name="role" onChange={handleChange} value={formData.role}>
+
+          <label htmlFor="role">Role</label>
+
+          <select name="role" onChange={handleChange} value={form.role}>
             <option value="citizen">Citizen</option>
             <option value="admin">Admin</option>
           </select>
+
           <button type="submit">Create Account</button>
         </form>
+        <p>Already have an account?<NavLink to='/login'>Sign In </NavLink></p>
+
       </div>
     </div>
   );
